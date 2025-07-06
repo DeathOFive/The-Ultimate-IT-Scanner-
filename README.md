@@ -22,11 +22,7 @@ If you're unsure, try the following:
 Open the Command Prompt
 
 Type:
-
-bash
-Copy
-Edit
-python --version
+'python --version'
 If you see an error saying Python is not recognized, install it from:
 
 https://www.python.org/downloads/windows
@@ -52,24 +48,18 @@ Linux
 
 On Debian-based systems (Ubuntu, Kali, etc.):
 
-bash
-Copy
-Edit
-sudo apt update
-sudo apt install python3 python3-pip -y
+'sudo apt update
+sudo apt install python3 python3-pip -y'
+
 On Arch-based systems:
 
-bash
-Copy
-Edit
-sudo pacman -S python python-pip
+'sudo pacman -S python python-pip'
+
 2. Run the scanner
 
-bash
-Copy
-Edit
-pip3 install psutil requests
-python3 plugnplay.py
+'pip3 install psutil requests
+python3 plugnplay.py'
+
 If you want to run it without typing the command every time, create a shell script or alias.
 
 macOS
@@ -77,29 +67,19 @@ macOS
 
 If needed, install Xcode command line tools:
 
-bash
-Copy
-Edit
-xcode-select --install
+'xcode-select --install'
+
 2. Install requirements and run
 
-bash
-Copy
-Edit
-python3 -m pip install --upgrade pip
+'python3 -m pip install --upgrade pip
 pip3 install psutil requests
-python3 plugnplay.py
-Windows .bat Launcher (Optional)
+python3 plugnplay.py'
+
 To make launching easier on Windows, include this .bat file alongside your script:
 
-bat
-Copy
-Edit
-@echo off
+'@echo off
 echo Launching PlugNPlay Scanner...
-python plugnplay.py
-pause
-You can also use a tool like Bat To Exe Converter if you want to distribute it as a standalone .exe.
+python plugnplay.py'
 
 Troubleshooting
 If nothing happens, double-check that Python is correctly installed and added to PATH.
