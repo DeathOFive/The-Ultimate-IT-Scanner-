@@ -1,91 +1,91 @@
-# The-Ultimate-IT-Scanner-
-A plug-and-play Python-based system scanner that auto-detects vulnerabilities, misconfigurations, open ports, defensive tools, and fetches live CVEs from the NVD API. Cross-platform, dependency-free, and hacker-ready.
+PlugNPlay IT Hardening & Security Audit Suite:
 
-PlugNPlay Vulnerability Scanner — Installation & Setup
-Welcome to PlugNPlay. This tool is designed to give you a plug-and-play experience: run it on any Windows, Linux, or macOS machine and get a full vulnerability check without needing to configure anything manually.
+An interactive, cross-platform security auditor designed exclusively for Windows and Linux hosts. It allows network students, developers, and system administrators to audit loopback port configurations, inspect firewall policies, check anti-malware status, and selectively check for registered system vulnerabilities using the live NIST National Vulnerability Database (NVD).
 
-Whether you're a professional or just getting started, follow this guide to get up and running in minutes.
+Features:
 
-Files Included
-plugnplay.py — the main scanner script (written in Python)
+Exclusive OS Compatibility Guardrail: Safely supports mainstream Windows and Linux environments. Operates with an automatic termination guardrail if run on macOS to prevent unintended behavior.
 
-launch_plugnplay.bat — Windows launcher to run the scanner
+Detailed OS Version Detection: Automatically gathers precise operating system details (such as your specific Windows release or Linux distribution name and version).
 
-README.txt — summary of this documentation
+Interactive CVE Query Gate: Offers a privacy-conscious console prompt asking whether you want to query the live NVD API for vulnerability records explicitly matching your operating system version.
 
-Installation Guide
-Windows
-1. Make sure Python is installed
+Loopback Port Profiling: Fast, multi-threaded localhost network audit scanning for standard services and administrative ports (1-1024).
 
-If you're unsure, try the following:
+Automated Dependency Setup: Automatically detects and silently installs required third-party libraries (psutil and requests) on demand.
 
-Open the Command Prompt
+Dual Reporting: Automatically generates a modern, dark-themed HTML visual report (scan_report.html) alongside a structured data dump (scan_results.json).
 
-Type:
-'python --version'
-If you see an error saying Python is not recognized, install it from:
+Installation & Usage:
 
-https://www.python.org/downloads/windows
+1. Ensure Python is Installed
 
-Important: During installation, be sure to select the checkbox that says "Add Python to PATH".
+Make sure you have Python 3 installed on your machine. You can verify this by opening a terminal or Command Prompt and running:
 
-2. Run the scanner
+python --version
 
-Once Python is installed:
 
-Double-click launch_plugnplay.bat
 
-A terminal window will open
+(On Windows, remember to check the "Add Python to PATH" option during installation).
 
-The script will install the required Python libraries (psutil, requests) silently
+2. Running the Audit
 
-It will then begin scanning your system
+Simply download the plugnplay.py script and run it from your terminal.
 
-You’ll see results printed in the terminal once the scan is complete — including open ports, firewall/AV status, installed security software, misconfigurations, and recent critical CVEs from the NVD database.
+On Windows:
 
-Linux
-1. Install Python (if not installed)
+Open Command Prompt or PowerShell as Administrator and run:
 
-On Debian-based systems (Ubuntu, Kali, etc.):
+python plugnplay.py
 
-'sudo apt update
-sudo apt install python3 python3-pip -y'
 
-On Arch-based systems:
 
-'sudo pacman -S python python-pip'
+On Linux:
 
-2. Run the scanner
+Open your terminal. It is recommended to run the script with elevated permissions (sudo) to allow the parser to audit system files like SSH configurations and sudoers:
 
-'pip3 install psutil requests
-python3 plugnplay.py'
+sudo python3 plugnplay.py
 
-If you want to run it without typing the command every time, create a shell script or alias.
 
-macOS
-1. Make sure Python and pip are available
 
-If needed, install Xcode command line tools:
+User Controls & Command Line Options:
 
-'xcode-select --install'
+Interactive Prompt: NVD CVE Query
 
-2. Install requirements and run
+At startup, the tool will identify your specific OS version and ask:
 
-'python3 -m pip install --upgrade pip
-pip3 install psutil requests
-python3 plugnplay.py'
+Audit OS-specific CVE records? (y/n):
 
-To make launching easier on Windows, include this .bat file alongside your script:
 
-'@echo off
-echo Launching PlugNPlay Scanner...
-python plugnplay.py'
 
-Troubleshooting
-If nothing happens, double-check that Python is correctly installed and added to PATH.
+Press y (Yes): The tool securely connects to the live NIST NVD API to find up to 5 critical vulnerabilities associated with your specific OS version.
 
-Make sure your internet is working — the scanner fetches live CVE data.
+Press n (No): Bypasses internet-facing queries entirely. Ideal for offline diagnostic runs or preserving system bandwidth.
 
-If permissions errors occur, try running as Administrator (on Windows) or with sudo (on Linux/macOS).
+Getting Help
 
-The port scan or AV check may take a few seconds. Be patient — the tool is doing real work.
+You can print the built-in manual directly in your terminal at any time by passing the help flag:
+
+python plugnplay.py --help
+
+
+
+Scan Outputs:
+
+Upon a successful audit, two files are written to your current folder:
+
+scan_report.html: A highly stylized, dark-themed HTML report containing responsive tables of open ports, categorized risk indicators, security configurations, and live threat streams.
+
+scan_results.json: A raw, structured JSON file containing all diagnostic metrics—perfect for database archiving or automated scripting.
+
+Troubleshooting:
+
+"ModuleNotFoundError": The script attempts to auto-install dependencies (psutil and requests). If your system blocks auto-installation, manually install them by typing:
+
+pip install psutil requests
+
+
+
+Permission Errors on Linux: If the script cannot check SSH configurations, run the script using sudo python3 plugnplay.py.
+
+macOS Execution Error: The tool is designed specifically for Windows and Linux hosts; execution on macOS is intentionally blocked.
