@@ -1,3 +1,6 @@
+WARNING!: The .BAT file is not currently working due to some minor issue on windows 11!
+Solution: Just open the .py file in your python installation
+
 PlugNPlay IT Hardening and Security Audit SuiteAn interactive, cross-platform security auditor designed exclusively for Windows and Linux hosts. It allows network students, developers, and system administrators to audit loopback port configurations, inspect firewall policies, check anti-malware status, and selectively check for registered system vulnerabilities using the live NIST National Vulnerability Database (NVD). Key FeaturesSystem SecurityExclusive OS Compatibility GuardrailSafely supports mainstream Windows and Linux environments. 
 
 Operates with an automatic termination guardrail if run on macOS to prevent unintended behavior.Detailed OS Version DetectionAutomatically gathers precise operating system details, such as your specific Windows release or Linux distribution name and version. 
